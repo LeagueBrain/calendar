@@ -7,17 +7,17 @@ import Interaction from '@event-calendar/interaction';
 import '@event-calendar/core/index.css';
 
 export default class extends Calendar {
-    constructor(el, options) {
-        super({
-            target: el,
-            props: {
-                plugins: [DayGrid, List, TimeGrid, ResourceTimeGrid, Interaction],
-                options
-            }
-        });
-    }
+	constructor(el, options) {
+		super({
+			target: el,
+			props: {
+				plugins: [DayGrid, List, TimeGrid, ResourceTimeGrid, Interaction],
+				options
+			}
+		});
+	}
 
-    get view() {
-        return this.getView();
-    }
+	get view() {
+		return this.getView();
+	}
 }

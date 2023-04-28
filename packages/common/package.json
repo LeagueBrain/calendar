@@ -1,41 +1,64 @@
 {
-  "name": "@event-calendar/common",
-  "version": "0.18.1",
-  "title": "Event Calendar Common package",
-  "description": "Full-sized drag & drop event calendar with resource view",
-  "keywords": [
-    "calendar",
-    "event",
-    "resource",
-    "full-sized"
-  ],
-  "homepage": "https://vkurko.github.io/calendar/",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/vkurko/calendar.git",
-    "directory": "packages/common"
-  },
-  "funding": [
-    {
-      "type": "paypal_$10",
-      "url": "https://paypal.me/vkurko/10usd"
-    },
-    {
-      "type": "paypal_$1",
-      "url": "https://paypal.me/vkurko/1usd"
-    }
-  ],
-  "license": "MIT",
-  "type": "module",
-  "svelte": "src/index.js",
-  "exports": {
-    ".": {
-      "svelte": "./src/index.js",
-      "default": "./index.js"
-    },
-    "./package.json": "./package.json"
-  },
-  "dependencies": {
-    "svelte": "^3.55.1"
-  }
+	"name": "@event-calendar/common",
+	"version": "0.18.1",
+	"title": "Event Calendar Common package",
+	"description": "Full-sized drag & drop event calendar with resource view",
+	"keywords": [
+		"calendar",
+		"event",
+		"resource",
+		"full-sized"
+	],
+	"homepage": "https://vkurko.github.io/calendar/",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/vkurko/calendar.git",
+		"directory": "packages/common"
+	},
+	"funding": [
+		{
+			"type": "paypal_$10",
+			"url": "https://paypal.me/vkurko/10usd"
+		},
+		{
+			"type": "paypal_$1",
+			"url": "https://paypal.me/vkurko/1usd"
+		}
+	],
+	"license": "MIT",
+	"scripts": {
+		"check": "tsc",
+		"check:all": "tsc && pnpm -r --filter=\"./**\" check",
+		"lint": "prettier --check . --config ../../.prettierrc --ignore-path .gitignore",
+		"format": "prettier --write . --config ../../.prettierrc --ignore-path .gitignore",
+		"build": "tsc"
+	},
+	"devDependencies": {
+		"autoprefixer": "^10.4.13",
+		"postcss": "^8.4.21",
+		"rollup": "^2.79.1",
+		"sass": "^1.57.1",
+		"svelte": "^3.55.1",
+		"typescript": "^5.0.0"
+	},
+	"dependencies": {
+		"svelte": "^3.58.0"
+	},
+	"files": [
+		"src",
+		"!src/**/*.test.*",
+		"!src/**/*.spec.*"
+	],
+	"exports": {
+		"./package.json": "./package.json",
+		".": {
+			"types": "./types/index.d.ts"
+		},
+		"./internal": {
+			"types": "./types/internal/index.d.ts",
+			"import": "./internal/index.js"
+		}
+	},
+	"types": "types/index.d.ts",
+	"type": "module"
 }

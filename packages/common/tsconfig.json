@@ -1,0 +1,23 @@
+{
+	"compilerOptions": {
+		"allowJs": true,
+		"checkJs": true,
+		"declaration": true,
+		"emitDeclarationOnly": true,
+		"noEmit": false,
+		"strict": true,
+		"module": "esnext",
+		"target": "esnext",
+		"moduleResolution": "node",
+		"allowSyntheticDefaultImports": true,
+		"paths": {
+			"@event-calendar/common": ["./types/index"],
+			"@event-calendar/common/internal": ["./types/internal/index"],
+			"types": ["./types/index"]
+		},
+		"outDir": "types/internal",
+		"noUnusedLocals": true,
+		"noUnusedParameters": true
+	},
+	"include": ["src/**/*", "types/**/*"]
+}

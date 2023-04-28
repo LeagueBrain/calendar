@@ -1,37 +1,70 @@
 {
-  "name": "@event-calendar/build",
-  "version": "0.18.1",
-  "title": "Event Calendar",
-  "description": "Full-sized drag & drop event calendar with resource view",
-  "keywords": [
-    "calendar",
-    "event",
-    "resource",
-    "full-sized"
-  ],
-  "homepage": "https://vkurko.github.io/calendar/",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/vkurko/calendar.git",
-    "directory": "packages/build"
-  },
-  "funding": [
-    {
-      "type": "paypal_$10",
-      "url": "https://paypal.me/vkurko/10usd"
-    },
-    {
-      "type": "paypal_$1",
-      "url": "https://paypal.me/vkurko/1usd"
-    }
-  ],
-  "license": "MIT",
-  "jsdelivr": "event-calendar.min.js",
-  "devDependencies": {
-    "@event-calendar/day-grid": "~0.18.1",
-    "@event-calendar/interaction": "~0.18.1",
-    "@event-calendar/list": "~0.18.1",
-    "@event-calendar/time-grid": "~0.18.1",
-    "@event-calendar/resource-time-grid": "~0.18.1"
-  }
+	"name": "@event-calendar/build",
+	"version": "0.18.1",
+	"title": "Event Calendar",
+	"description": "Full-sized drag & drop event calendar with resource view",
+	"keywords": [
+		"calendar",
+		"event",
+		"resource",
+		"full-sized"
+	],
+	"homepage": "https://vkurko.github.io/calendar/",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/vkurko/calendar.git",
+		"directory": "packages/build"
+	},
+	"funding": [
+		{
+			"type": "paypal_$10",
+			"url": "https://paypal.me/vkurko/10usd"
+		},
+		{
+			"type": "paypal_$1",
+			"url": "https://paypal.me/vkurko/1usd"
+		}
+	],
+	"license": "MIT",
+	"jsdelivr": "dist/event-calendar.min.js",
+	"scripts": {
+		"lint": "prettier --check . --config ../../.prettierrc --ignore-path .gitignore",
+		"format": "prettier --write . --config ../../.prettierrc --ignore-path .gitignore",
+		"build": "rollup -c && tsc"
+	},
+	"files": [
+		"dist",
+		"!dist/**/*.test.*",
+		"!dist/**/*.spec.*"
+	],
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/event-calendar.min.js"
+		}
+	},
+	"devDependencies": {
+		"@babel/core": "^7.20.12",
+		"@babel/plugin-transform-runtime": "^7.19.6",
+		"@babel/preset-env": "^7.20.2",
+		"@babel/runtime-corejs3": "^7.20.13",
+		"@rollup/plugin-babel": "^6.0.3",
+		"@rollup/plugin-commonjs": "^24.0.1",
+		"@rollup/plugin-node-resolve": "^15.0.1",
+		"@rollup/plugin-terser": "^0.4.0",
+		"autoprefixer": "^10.4.13",
+		"postcss": "^8.4.21",
+		"rollup": "^2.79.1",
+		"rollup-plugin-livereload": "^2.0.5",
+		"rollup-plugin-scss": "^4.0.0",
+		"sass": "^1.57.1",
+		"svelte": "^3.55.1",
+		"typescript": "^5.0.0",
+		"@event-calendar/core": "workspace:~",
+		"@event-calendar/day-grid": "workspace:~",
+		"@event-calendar/interaction": "workspace:~",
+		"@event-calendar/list": "workspace:~",
+		"@event-calendar/time-grid": "workspace:~",
+		"@event-calendar/resource-time-grid": "workspace:~"
+	}
 }
